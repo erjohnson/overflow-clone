@@ -9,10 +9,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create!(params[question_params])
-    respond_to do |format|
-      format.html { redirect_to questions_url }
-      format.js
+    @question = Question.new(question_params)
+    if @question.save
+      respond_to do |format|
+        format.html { redirect_to questions_url }
+        format.js
+      end
     end
   end
 

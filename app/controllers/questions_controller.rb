@@ -18,6 +18,11 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def show
+    @question = Question.find(params[:id])
+    @answers = @question.answers
+  end
+
 private
   def question_params
     params.require(:question).permit(:content).merge(user_id: current_user.id)

@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   root :to => 'questions#index'
   resources :sessions
   resources :users
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
 end

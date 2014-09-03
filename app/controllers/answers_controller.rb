@@ -1,15 +1,16 @@
 class AnswersController < ApplicationController
 
   def new
-    @question = Question.find(:question_id)
-    @answer = Answer.new
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.new
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.new(answer_params)
     if @answer.save
       respond_to do |format|
-        format.html { redirect_to answers_url }
+        format.html { redirect_to question_url }
         format.js
       end
     end

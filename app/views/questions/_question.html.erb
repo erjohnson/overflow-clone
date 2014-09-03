@@ -1,1 +1,1 @@
-<p><%= link_to "#{question.content}", question_path(question) %> posted by <%= question.user.name %></p>
+<p><span class="glyphicon glyphicon-arrow-up"></span> <%= question.vote_count %> - <%= link_to "#{question.content}", question_path(question) %> posted by <%= question.user.name %></p>

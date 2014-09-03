@@ -16,6 +16,10 @@ class AnswersController < ApplicationController
     end
   end
 
+  def show
+    @vote = Vote.new
+  end
+
 private
   def answer_params
     params.require(:answer).permit(:content, :question_id).merge(user_id: current_user.id, question_id: @question.id)

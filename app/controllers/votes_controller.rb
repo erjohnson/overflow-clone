@@ -1,12 +1,17 @@
 class VotesController < ApplicationController
 
-  def index
-  end
-
   def new
+    @vote = Votes.new
   end
 
   def create
+    @vote = Vote.new(vote_params)
+    if @vote.save
+      respond_to do |format|
+        format.html { redirect_to question_url }
+        format.js
+      end
+    end
   end
 
 private

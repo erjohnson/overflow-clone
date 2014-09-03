@@ -1,6 +1,6 @@
 <p>
-
-  <%= answer.vote_count %> <blockquote><%= answer.content %></blockquote>
+  <%= render 'votes/form', answer: answer %>
+  <span class="glyphicon glyphicon-arrow-up"></span> <%= answer.vote_count %> <blockquote><%= answer.content %></blockquote>
   <%= answer.user.name %>
 </p>
 <br>

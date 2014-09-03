@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
   root :to => 'questions#index'
   resources :sessions
-  resources :users
+  resources :users do
+    resources :votes
+  end
   resources :questions do
-    resources :answers
+    resources :votes
+    resources :answers do
+      resources :votes
+    end
   end
 end

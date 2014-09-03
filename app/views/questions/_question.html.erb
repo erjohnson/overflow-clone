@@ -1,1 +1,9 @@
-<p><span class="glyphicon glyphicon-arrow-up"></span> <%= question.vote_count %> - <%= link_to "#{question.content}", question_path(question) %> posted by <%= question.user.name %></p>
+<p>
+  <%= form_for [@votable, @vote], remote: true do |f| %>
+    <%= f.submit %>
+  <% end %>
+
+  <span class="vote-count"><%= question.vote_count %></span> - <%= link_to "#{question.content}", question_path(question) %>
+  posted by
+  <%= question.user.name %>
+</p>

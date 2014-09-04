@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
     if @answer.save
       respond_to do |format|
-        format.html { redirect_to question_url }
+        format.html { redirect_to question_url(@post), notice: "Watch it, mister!" }
         format.js
       end
     end

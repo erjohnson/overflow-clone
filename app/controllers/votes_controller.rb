@@ -8,7 +8,7 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
     if @vote.save
       respond_to do |format|
-        format.html { redirect_to question_url }
+        format.html { redirect_to question_url(@question) }
         format.js
       end
     end

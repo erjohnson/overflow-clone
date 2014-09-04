@@ -1,5 +1,16 @@
-<p>
-  <span class="glyphicon glyphicon-arrow-up"></span> <span class="vote"><%= answer.vote_count %></span> <blockquote><%= answer.content %></blockquote>
-  <%= answer.user.name %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <%= form_for Vote.new, remote: true do |f| %>
+      <%= f.hidden_field :answer_id, :value => answer.id %>
+      <%= f.submit %>
+    <% end %>
+    <span class="vote"><%= answer.votes.count %></span></p>
+  </div>
+  <div class="col-md-9">
+    <%= answer.content %>
+    <br>
+    <%= answer.user.name %>
+  </div>
+</div>
+<br>
 <br>
